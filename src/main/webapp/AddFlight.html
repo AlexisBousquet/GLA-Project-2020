@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="style.css"/>
+		<title>Add a flight</title>
+	</head>
+	
+	<body>
+		<div id="container">
+			<h1>Add a flight</h1>
+		
+			<nav>
+
+			</nav>
+
+			<script id="templateExample" type="text/template">
+				<div>
+					<%= attribute %>
+				</div>
+			</script>
+
+			<div id="fields">
+				<div>
+					<label for="departureAerodrom">Aerodrom of departure : </label>
+					<input type="text" name="departureAerodrom"  id="departureAerodrom">
+				</div>
+
+				<div>
+					<label for="arrivalAerodrom">Aerodrom of arrival : </label>
+					<input type="text" name="arrivalAerodrom" id="arrivalAerodrom">
+				</div>
+
+				<div>
+					<label for="departureDate">Date of departure : </label>
+					<input type="date" name="departureDate" id="departureDate">
+				</div>
+
+				<div>
+					<label for="departureTime">Time of departure : </label>
+					<input type="time" name="departureTime" id="departureTime">
+				</div>
+
+				<div>
+					<label for="duration">Duration of the flight : </label>
+					<input type="time" name="duration" id="duration">
+				</div>
+
+				<div>
+					<label for="price">Price : </label>
+					<input type="text" name="price" id="price">
+				</div>
+
+				<div>
+					<label for="nbPassengers">Number of passengers : </label>
+					<input type="number" name="nbPassengers" id="nbPassengers">
+				</div>
+
+				<div>
+					<label for="information">Personal information : </label>
+					<textarea name="information" id="information" rows="10" cols="50"></textarea>
+				</div>
+			</div>
+
+			<div id="addFlight">
+				<button id="addFlightButton">Add this flight</button>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="AddFlight.js"></script>
+	</body>
+</html>

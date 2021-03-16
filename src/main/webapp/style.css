@@ -1,0 +1,178 @@
+/*General*/
+html{
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+}
+
+body{
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+	background:linear-gradient(180deg, #9cd2ff, #20a6ff);
+    background-attachment: fixed;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	color:rgb(148, 44, 44);
+	font-size:1.4em ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*HomePage*/
+#main_panel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items:stretch;
+    background-color: #2088ff;
+}
+
+#main_panel a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+}
+#main_panel a:hover{
+    background-color:#20a6ff;
+}
+
+#main_panel a div{
+    height: 100%;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.homePageLink + .homePageLink{
+    border-left: solid 3px white;
+}
+
+.homePageLogo{
+    width: 70%;
+    height: auto;
+}
+
+/*AddFlight*/
+#fields{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#fields div{
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+}
+
+#fields div:hover{
+    background-color: rgb(212, 220, 228);
+}
+
+#fields div + div{
+    border-top: solid 2px black;
+}
+
+
+/*SearchFlight*/
+
+#searchFields{
+    align-self: flex-start;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1%;
+    flex-wrap: nowrap;
+}
+
+/*Pilot Account & Passenger Account*/
+#accountFields{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#accountFields div{
+    margin-top: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#flightList{
+    width: 80%;
+    margin-top: 20px;
+    border: solid 3px black;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#results{
+    width: 100%;
+}
+
+.flight{
+    width: 100%;
+    padding: 10px;
+    border-top: solid 2px black;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flight div{
+    width:20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flight p{
+    border: solid 2px black;
+}
+
+.flight:hover{
+    background-color:gainsboro;
+}
+
+/*SearchResults*/
+
+#otherSearch{
+    margin-top: 30px;
+}
+
+#searchLogo{
+    height: 40px;
+    width: auto;
+}
+
+/*Flight*/
