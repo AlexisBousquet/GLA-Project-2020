@@ -1,13 +1,14 @@
 var username;
 var password;
-
+var args;
 function getServerData(type, url, fun){
     $.ajax({
-		type:type,
-        dataType: "json",
-        url: url
-    })
-	.done(fun)
+		type: type,
+		data: JSON.stringify(args),
+		contentType: 'application/json',
+		dataType: 'json',
+		url:url
+	}).done(fun)
 }
 
 function callDone(result){
@@ -24,11 +25,19 @@ $(function(){
 	$("#logInButton").click(function(){
 		username = $('input[name="emailInput"]').val();
 		password = $('input[name="passwordInput"]').val();
+		args = {
+			'username':username,
+			'password':password
+		}
 		getServerData('GET', 'webservice/pilot/logIn/'+username+'/'+password, callDone);
 	});
 	$("#signUpButton").click(function(){
 		username = $('input[name="emailInput"]').val();
 		password = $('input[name="passwordInput"]').val();
+		args = {
+			'username':username,
+			'password':password
+		}
 		getServerData('GET', 'webservice/pilot/signUp/'+username+'/'+password, callDone);
 	});
 });

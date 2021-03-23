@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import com.example.datanucleus.dao.PassengerDAO;
 
 @Path("/passenger")
-public class PassengerRessources implements PassengerDAO {
+public class PassengerRessources{
 
 	@PUT
 	@Path("/signUp/{username}/{password}/{mail}")

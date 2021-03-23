@@ -1,15 +1,17 @@
 package com.example.datanucleus.dao;
 
+import java.time.LocalDateTime;
+import java.util.List;
 
 public interface FlightDAO {
 	
-	//PUT
-	void add_flight(String a_dep,String a_arr,String date_dep,int duration,int price,int remainingseats,long idpilot);
 	
-	//POST
-	void modify_flight_remainingseats(long id,int seats,String passangers);
+	void add_flight(Flight flight);
 	
-	//GET
-	void search_flight(String a_dep,String date_dep,int places);
+	
+	void modify_flight_remainingseats(long id,int seats,String passengers);
+	
+	
+	List<Flight> search_flight(String a_dep,LocalDateTime date_dep,int places);
 
 }

@@ -11,7 +11,7 @@ public class Passenger {
 
 	@PrimaryKey
 	@Persistent(valueStrategy=IdGeneratorStrategy.INCREMENT)
-	protected String id;
+	protected long id;
 	
 	protected String name;
 	protected String surname;
@@ -50,7 +50,7 @@ public class Passenger {
 		this.mail = mail;
 	}
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
