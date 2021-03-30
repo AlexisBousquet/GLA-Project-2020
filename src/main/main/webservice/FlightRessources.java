@@ -2,6 +2,7 @@ package webservice;
 
 
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -9,12 +10,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-
-import com.example.datanucleus.dao.FlightDAO;
+import com.example.datanucleus.dao.Passenger;
 
 
 @Path("/Flight")
-public class FlightRessources implements FlightDAO {
+public class FlightRessources{
 	
 	@PUT
 	@Path("/add/{a_dep}/{a_arr}/{date_dep}/{duration}/{price}/{remainingseats}/{id_pilot}")
@@ -35,6 +35,14 @@ public class FlightRessources implements FlightDAO {
 	@Path("/searchFull/{a_dep}/{date_dep}/{places}")
 	public void search_flight(@PathParam("a_dep")String a_dep,@PathParam("date_dep")String date_dep,@PathParam("places")int places) {
 		
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/test")
+	public void test(String p) {
+		System.out.println(p);
 	}
 
 }
