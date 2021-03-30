@@ -11,28 +11,33 @@ import javax.jdo.annotations.PrimaryKey;
 public class Pilot {
 	
 	
+
 	@PrimaryKey
 	@Persistent(valueStrategy=IdGeneratorStrategy.INCREMENT)
-	protected String id;
+	protected long id;
 	
 	protected String name;
 	protected String surname;
+	protected String password;
 	protected int experience;
 	protected String qualification;
 	protected String mail;
 	protected int number_of_flight_hours;
+	@Persistent
 	protected LinkedList<Flight> list_of_flights;
 	
-	public Pilot(String name, String surname, int experience, String qualification, String mail,
+	
+	public Pilot(String name, String surname, String password, int experience, String qualification, String mail,
 			int number_of_flight_hours) {
 		super();
 		this.name = name;
 		this.surname = surname;
+		this.password = password;
 		this.experience = experience;
 		this.qualification = qualification;
 		this.mail = mail;
 		this.number_of_flight_hours = number_of_flight_hours;
-		list_of_flights = new LinkedList<Flight>();
+		list_of_flights=new LinkedList<Flight>();
 	}
 	
 	public String getName() {
@@ -46,6 +51,12 @@ public class Pilot {
 	}
 	public void setSurname(String surname) {
 		this.surname = surname;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public int getExperience() {
 		return experience;
@@ -77,16 +88,16 @@ public class Pilot {
 	public void setList_of_flights(LinkedList<Flight> list_of_flights) {
 		this.list_of_flights = list_of_flights;
 	}
-	public String getId() {
+	public long getId() {
 		return id;
 	}
-
 	@Override
 	public String toString() {
-		return "Pilot [id=" + id + ", name=" + name + ", surname=" + surname + ", experience=" + experience
-				+ ", qualification=" + qualification + ", mail=" + mail + ", number_of_flight_hours="
-				+ number_of_flight_hours + ", list_of_flights=" + list_of_flights + "]";
+		return "Pilot [id=" + id + ", name=" + name + ", surname=" + surname + ", password=" + password
+				+ ", experience=" + experience + ", qualification=" + qualification + ", mail=" + mail
+				+ ", number_of_flight_hours=" + number_of_flight_hours + ", list_of_flights=" + list_of_flights + "]";
 	}
 	
+
 }
 

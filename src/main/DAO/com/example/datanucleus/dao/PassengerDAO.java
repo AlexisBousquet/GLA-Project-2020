@@ -2,8 +2,17 @@ package com.example.datanucleus.dao;
 
 public interface PassengerDAO {
 
+	public class Reponse{
+		long id;
+		String error;
+		
+		public Reponse(long idd,String erreur) {
+			id=idd;
+			error=erreur;
+		}
+		
+	}
 	
-	//GET
-	void add_new_Passenger(String name,String surname,String mail,String password);
-	boolean login_passenger(String mail,String password);
+	Reponse add_new_Passenger(Passenger p);
+	Reponse login_passenger(String username,String password);
 }

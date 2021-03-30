@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 
-@Path("/flight")
+@Path("/flightbouchon")
 public class FlightRessourcesBouchon {
 	public class SimpleClass{
 		public String s = "TEST";
