@@ -10,49 +10,31 @@
 	<body>
 		<div id="container">
 			<h1>Search results</h1>
-			<div id="flightList">
-				<div id="results">
-					<div class="flight">
-						<div>
-							<p>DepartureAerodrom</p>
-							<p>ArrivalAerodrom</p>
-						</div>
-						<p>Duration</p>
-						<p>Price</p>
-						<p>Remaining Seats</p>
-					</div>
-					<div class="flight">
-						<div>
-							<p>DepartureAerodrom2</p>
-							<p>ArrivalAerodrom2</p>
-						</div>
-						<p>Duration2</p>
-						<p>Price2</p>
-						<p>Remaining Seats2</p>
-					</div>
-				</div>
-			</div>
-
+			<div id="flightList"></div>
 			<div id="otherSearch">
 				<button id="otherSearchButton" class="btn btn-primary">Search another flight</button>
-				<img src="img/plane.PNG" id="searchLogo">
-			</div>
-			
-			<script id="flightTemplate" type="text/template">
-				<div class="flight">
-					<div>
-						<p><%DepartureAerodrom%></p>
-						<p><%ArrivalAerodrom%></p>
-					</div>
-					<p><%ArrivalTime%></p>
-					<p><%ArrivalTime%></p>
-					<p><%Duration%></p>
-					<p><%Price%></p>
-					<p><%Remaining Seats%></p>
-				</div>
-			</script>
+			</div>	
 		</div>
 
-		<script type="text/javascript" src="SearchResults.html"></script>
+		<script id="flightTemplate" type="text/template">
+			<div class="flight">
+				<div class="aerodroms">
+					<p><%= departureAerodrom %></p>
+					<p><%= arrivalAerodrom %></p>
+				</div>
+				<p><%= departureTime %></p>
+				<p><%= duration %></p>
+				<p><%= price %></p>
+				<p><%= remainingSeats %></p>
+			</div>
+		</script>
+
+		<script id="noResultTemplate" type="text/template">
+			<p>Sorry, no flight have been found, try another search</p>
+		</script>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="SearchResults.js"></script>
 	</body>
 </html>

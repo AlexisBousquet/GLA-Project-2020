@@ -1,10 +1,10 @@
 var firstName;
 var lastName;
-var email;
+var mail;
 var password;
 var experience;
-var qualifications;
-var nbFlightHours;
+var qualification;
+var number_of_flight_hours;
 var args;
 
 function getServerData(type, url, fun){
@@ -24,19 +24,11 @@ function isUser(response){
 		"attribute":JSON.stringify(data.message)
 	});
 	$("#result").append(html);
-	if(data.ID > 0){
-		localStorage.setItem("ID",data.ID);
-		setTimeout(function(){document.location.href="http://localhost:8080/Homepage.html";}, 2000);
+	if(data.id > 0){
+		localStorage.setItem("ID",data.id);
+		setTimeout(function(){document.location.href="http://localhost:8080/PilotProfile.html";}, 2000);
 
 	}
-}
-
-function callDone(response){
-	var templateExample = _.template($('#templateExample').html());
-	var html = templateExample({
-		"attribute":"Your pilot account has been created !"
-	});
-	$("#result").append(html);
 }
 
 $(function(){
@@ -44,21 +36,21 @@ $(function(){
 
 		firstName = $('input[name="firstName"]').val();
 		lastName = $('input[name="lastName"]').val();
-		email = $('input[name="email"]').val();
+		mail = $('input[name="email"]').val();
 		password = $('input[name="password"]').val();
 		experience = $('input[name="experience"]').val();
-		qualifications = $('input[name="qualifications"]').val();
-		nbFlightHours = $('input[name="nbFlightHours"]').val();
+		qualification = $('input[name="qualifications"]').val();
+		number_of_flight_hours = $('input[name="nbFlightHours"]').val();
 
 		args = {
 			"firstName":firstName,
 			"lastName":lastName,
-			"email":email,
+			"mail":mail,
 			"password":password,
 			"experience":experience,
-			"qualifications":qualifications,
-			"nbFlightHours":nbFlightHours
+			"qualification":qualification,
+			"number_of_flight_hours":number_of_flight_hours
 		}
-		getServerData('PUT', 'webservice/pilot/signUp/', callDone);
+		getServerData('PUT', 'webservice/pilot/signUp/', isUser);
 	});
 });

@@ -18,9 +18,9 @@ function isUser(response){
 		"attribute":JSON.stringify(data.message)
 	});
 	$("#result").append(html);
-	if(data.ID > 0){
-		localStorage.setItem("ID",data.ID);
-		setTimeout(function(){document.location.href="http://localhost:8080/Homepage.html";}, 2000);
+	if(data.id > 0){
+		localStorage.setItem("id",data.id);
+		setTimeout(function(){document.location.href="http://localhost:8080/Homepage.html";}, 1000);
 
 	}
 }
