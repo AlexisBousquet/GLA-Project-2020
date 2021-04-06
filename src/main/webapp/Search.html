@@ -19,29 +19,27 @@
 
 			<div id="searchFields">
 				<div>
-					<input type="text" name="departureAerodrom"  id="departureAerodrom" placeholder="From..." class="form-control">
+					<input type="text" name="departureAerodrom"  id="departureAerodrom" placeholder="Departure" class="form-control">
 				</div>
 
 				<div>
-					<input type="text" name="arrivalAerodrom" id="arrivalAerodrom" placeholder="To..." class="form-control">
+					<input type="datetime-local" name="date_min" id="date_min" placeholder="From" class="form-control">
 				</div>
 
 				<div>
-					<input type="date" name="departureDate" id="departureDate" class="form-control">
-				</div>
-
-				<div>
-					<input type="number" name="nbPassengers" id="nbPassengers" placeholder="Nb of passengers" class="form-control">
+					<input type="datetime-local" name="date_max" id="date_max" placeholder="To" class="form-control">
 				</div>
 			</div>
 
 			<div id="searchFlight">
 				<button id="searchFlightButton" class="btn btn-primary">Search this flight</button>
-				<button id="login" class="btn btn-primary">Login</button>
+				<button id="logInButton" class="btn btn-primary">Login</button>
 				<div id="result"></div>
 			</div>
 		</div>
 
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script type="text/javascript" src="Search.js"></script>
 	</body>
 </html>

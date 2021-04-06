@@ -2,9 +2,6 @@ var firstName;
 var lastName;
 var email;
 var password;
-var experience;
-var qualifications;
-var nbFlightHours;
 var args;
 
 function getServerData(type, url, fun){
@@ -24,19 +21,11 @@ function isUser(response){
 		"attribute":JSON.stringify(data.message)
 	});
 	$("#result").append(html);
-	if(data.ID > 0){
-		localStorage.setItem("ID",data.ID);
-		setTimeout(function(){document.location.href="http://localhost:8080/Homepage.html";}, 2000);
+	if(data.id > 0){
+		localStorage.setItem("ID",data.id);
+		setTimeout(function(){document.location.href="http://localhost:8080/Search.html";}, 2000);
 
 	}
-}
-
-function callDone(response){
-	var templateExample = _.template($('#templateExample').html());
-	var html = templateExample({
-		"attribute":"Your passenger account has been created !"
-	});
-	$("#result").append(html);
 }
 
 $(function(){
@@ -53,6 +42,6 @@ $(function(){
 			"email":email,
 			"password":password,
 		}
-		getServerData('PUT', 'webservice/passenger/signUp/', callDone);
+		getServerData('PUT', 'webservice/passenger/signUp/', isUser);
 	});
 });
