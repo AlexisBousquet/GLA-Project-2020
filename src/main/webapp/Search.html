@@ -8,26 +8,58 @@
 	</head>
 	
 	<body>
-		<div id="container">
-			<h1>Search a flight</h1>
-		
-			<script id="templateExample" type="text/template">
+		<script id="PilotAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PilotProfile.html" class="accountTemplate">
 				<div>
-					<%= attribute %>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
 				</div>
-			</script>
+			</a>
+		</script>
 
+		<script id="PassengerAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PassengerProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="ConnectTemplate" type="text/template">
+			<div id = connectTemplate>
+				<a href="http://localhost:8080/LoginPassenger.html" class="accountTemplate" id="connectPassenger">
+					<p>Passenger-Log in</p>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+				</a>
+				<a href="http://localhost:8080/LoginPilot.html" class="accountTemplate" id="connectPilot">
+					<p>Pilot-Log in</p>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+				</a>				
+			</div>
+		</script>
+		
+		<div id="container">
+			<header id="header">
+				<a id="homePageLink" href="http://localhost:8080/Homepage.html">Back to Homepage</a>
+				<div id="accountSpace"></div>
+			</header>
+			<h1>Search a flight</h1>
 			<div id="searchFields">
 				<div>
-					<input type="text" name="departureAerodrom"  id="departureAerodrom" placeholder="Departure" class="form-control">
+					<input type="text" name="departureAirport"  id="departureAirport" placeholder="Departure" class="form-control">
 				</div>
 
 				<div>
-					<input type="datetime-local" name="date_min" id="date_min" placeholder="From" class="form-control">
+					<input type="datetime-local" name="date_min" id="date_min" class="form-control">
 				</div>
 
 				<div>
-					<input type="datetime-local" name="date_max" id="date_max" placeholder="To" class="form-control">
+					<input type="datetime-local" name="date_max" id="date_max" class="form-control">
+				</div>
+
+				<div>
+					<input type="number" name="nbSeats" id="nbSeats" placeholder="Number of seats" class="form-control">
 				</div>
 			</div>
 

@@ -16,29 +16,26 @@ import org.joda.time.DateTime;
 public class Flight {
 	
 
-
 	@PrimaryKey
 	@Persistent(valueStrategy=IdGeneratorStrategy.INCREMENT)
 	protected long id;
 	
-	protected String arrival;
-	protected String departure;
-	protected DateTime date;
-	protected int Duration;
-	protected int price;
+	protected String arrival;//airport of arrival
+	protected String departure;//airport of departure
+	protected DateTime date;//time of depart
+	protected int Duration;//duration of the flight
+	protected int price;//price per passenger
 	protected int nbremainningseats;
-	protected String informations;
-	@Persistent
-	protected Pilot pilot;
-	@Persistent
-	protected LinkedList<Passenger> passengers;
+	protected String informations;//information about the aircraft and flight plan
+	protected long pilot;
+	protected LinkedList<Reservation> passengers;
 	
 	
 	
 	public Flight() {}
 
-	public Flight(String arrival, String departure, DateTime date, int duration, int price,
-			int nbremainningseats, String informations, Pilot pilot) {
+	public Flight(String departure, String arrival, DateTime date, int duration, int price,
+			int nbremainningseats, String informations, long pilot) {
 		this.arrival = arrival;
 		this.departure = departure;
 		this.date = date;
@@ -47,7 +44,7 @@ public class Flight {
 		this.nbremainningseats = nbremainningseats;
 		this.informations = informations;
 		this.pilot = pilot;
-		this.passengers = new LinkedList<Passenger>();
+		this.passengers = new LinkedList<Reservation>();
 	}
 	
 	
@@ -95,8 +92,8 @@ public class Flight {
 		return nbremainningseats;
 	}
 
-	public void setNbremainningseats(int nbremainningseats) {
-		this.nbremainningseats = nbremainningseats;
+	public void setNbremainningseats(int l) {
+		this.nbremainningseats = l;
 	}
 
 	public String getInformations() {
@@ -107,19 +104,19 @@ public class Flight {
 		this.informations = informations;
 	}
 
-	public Pilot getPilot() {
+	public long getPilot() {
 		return pilot;
 	}
 
-	public void setPilot(Pilot pilot) {
+	public void setPilot(long pilot) {
 		this.pilot = pilot;
 	}
 
-	public LinkedList<Passenger> getPassengers() {
+	public LinkedList<Reservation> getPassengers() {
 		return passengers;
 	}
 
-	public void setPassengers(LinkedList<Passenger> passengers) {
+	public void setPassengers(LinkedList<Reservation> passengers) {
 		this.passengers = passengers;
 	}
 
@@ -127,12 +124,19 @@ public class Flight {
 		return id;
 	}
 
+	
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
-		return "Flight [id=" + id + ", arrival=" + arrival + ", departure=" + departure + ", date=" + date + ", Duration=" + Duration + ", price=" + price + ", nbremainningseats=" + nbremainningseats
+		return "Flight [id=" + id + ", arrival=" + arrival + ", departure=" + departure + ", date=" + date
+				+ ", Duration=" + Duration + ", price=" + price + ", nbremainningseats=" + nbremainningseats
 				+ ", informations=" + informations + ", pilot=" + pilot + ", passengers=" + passengers + "]";
 	}
-	
 	
 	
 	
