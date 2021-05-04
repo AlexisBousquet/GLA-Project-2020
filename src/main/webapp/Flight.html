@@ -3,42 +3,126 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css"/>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<title>Flight information</title>
 	</head>
-
+	
 	<body>
+		<script id="PilotAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PilotProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="PassengerAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PassengerProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="ConnectTemplate" type="text/template">
+			<div id = connectTemplate>
+				<a href="http://localhost:8080/LoginPassenger.html" class="accountTemplate" id="connectPassenger">
+					<p>Passenger-Log in</p>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+				</a>
+				<a href="http://localhost:8080/LoginPilot.html" class="accountTemplate" id="connectPilot">
+					<p>Pilot-Log in</p>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+				</a>				
+			</div>
+		</script>
+		
 		<div id="container">
+			<header id="header">
+				<a id="homePageLink" href="http://localhost:8080/Homepage.html">Back to Homepage</a>
+				<div id="accountSpace"></div>
+			</header>
+
 			<h1>Flight information</h1>
 
-			<div id="FlightFields">
+			<div id="fields">
 				<div>
-					<h2>Aerodrom of departure:</h2>
-					<p></p>
+					<label for="departureAirport">Airport of departure : </label>
+					<p name="departureAirport"  id="departureAirport"></p>
 				</div>
 
 				<div>
-					<h2>Departure time:</h2>
-					<p></p>
+					<label for="arrivalAirport">Airport of arrival : </label>
+					<p name="arrivalAirport" id="arrivalAirport"></p>
 				</div>
 
 				<div>
-					<h2>Duration:</h2>
-					<p></p>
+					<label for="departureDate">Date of departure : </label>
+					<p name="departureDate" id="departureDate"></p>
 				</div>
 
 				<div>
-					<h2>Pilot & plane information:</h2>
-					<p></p>
-					<p></p>
+					<label for="departureTime">Time of departure : </label>
+					<p name="departureTime" id="departureTime"></p>
+				</div>
+
+				<div>
+					<label for="duration">Duration of the flight (minutes) : </label>
+					<p name="duration" id="duration"></p>
+				</div>
+
+				<div>
+					<label for="price">Price : </label>
+					<p name="price" id="price"></p>
+				</div>
+
+				<div>
+					<label for="nbRemainingSeats">Remaining seats : </label>
+					<p name="nbRemainingSeats" id="nbRemainingSeats"></p>
+				</div>
+
+				<div>
+					<label for="information">Additionnal information : </label>
+					<p name="information" id="information" rows="10" cols="50"></p>
+				</div>
+
+				<div id="nbPassengers">
+					<label for="nbPassengers">Number of passengers : </label>
+					<p name="nbPassengers" id="nbPassengers"></p>
+				</div>
+	
+				<div id="totalPriceDiv">
+					<label for="totalPrice">Total price : </label>
+					<p name="totalPrice" id="totalPrice"></p>
 				</div>
 			</div>
 			
+
 			<div id="bookFlight">
-				<button id="bookFlightButton" class="btn btn-primary">Book this flight</button>
+				<button id="bookFlightButton">Book this flight!</button>
 			</div>
+
+			<div id="result"></div>
 		</div>
 
-		<script type="text/javascript" src="Passenger.js"></script>
+		<script id="reservationTemplate" type="text/template">			
+			<div>
+				<p>
+					Your reservation has been sent to the pilot, you will receive an e-mail to your account's adress when your reservation will be approved. Thank You!
+				</p>
+			</div>
+
+			<div id="homepageButton">
+				<button id="homepageButton">Go back to homepage</button>
+			</div>
+		</script>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="Flight.js"></script>
 	</body>
 </html>
+
+
+

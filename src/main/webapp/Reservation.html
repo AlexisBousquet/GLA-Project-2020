@@ -3,10 +3,9 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="style.css"/>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<title>Passenger information</title>
+		<title>Your Reservation</title>
 	</head>
-
+	
 	<body>
 		<script id="PilotAccountTemplate" type="text/template">
 			<a href="http://localhost:8080/PilotProfile.html" class="accountTemplate">
@@ -44,80 +43,59 @@
 				<a id="homePageLink" href="http://localhost:8080/Homepage.html">Back to Homepage</a>
 				<div id="accountSpace"></div>
 			</header>
-			<h1>Passenger information</h1>
 
-			<div id="accountFields">
-				<div>
-					<h2>First name</h2>
-					<input type="text" name="firstName" id="firstName" class="form-control">
-				</div>
+			<h1>Your Reservation</h1>
 
+			<div id="fields">
 				<div>
-					<h2>Last name</h2>
-					<input type="text" name="lastName" id="lastName" class="form-control">
+					<label for="departureAirport">Airport of departure : </label>
+					<p name="departureAirport"  id="departureAirport"></p>
 				</div>
 
 				<div>
-					<h2>E-mail</h2>
-					<input type="email" name="email" id="email" class="form-control">
+					<label for="arrivalAerodrom">Airport of arrival : </label>
+					<p name="arrivalAerodrom" id="arrivalAirport"></p>
 				</div>
 
 				<div>
-					<h2>Password</h2>
-					<input type="password" name="password" id="password" class="form-control">
+					<label for="departureDate">Date of departure : </label>
+					<p name="departureDate" id="departureDate"></p>
 				</div>
-			</div>
-			
-			<div id="profileButtons">
-				<button id="saveChangesButton" class="btn btn-primary">Save changes</button>
-				<button id="logOutButton" class="btn btn-primary">Log out</button>
-			</div>
 
-			<h1>My flights</h1>
-			<di id="flightList"></di>
-
-			<script id="flightTemplate" type="text/template">
-				<div class="flight">
-					<div class="airports">
-						<p>
-							From: <br>
-							<%= departureAirport %>
-						</p>
-
-						<p>
-							To: <br>
-							<%= arrivalAirport %>
-						</p>
-
-					</div>
-					<p>
-						Departure Time (UTC): <br>
-						<%= departureTime %>
-					</p>
-
-					<p>
-						Duration(min): <br>
-						<%= duration %>
-					</p>
-
-					<p>
-						Total price ($): <br>
-						<%= price %>
-					</p>
-
-					<p>
-						Reserved seats: <br>
-						<%= seats %>
-					</p>
+				<div>
+					<label for="departureTime">Time of departure : </label>
+					<p name="departureTime" id="departureTime"></p>
 				</div>
-			</script>
+
+				<div>
+					<label for="price">Price : </label>
+					<p name="price" id="price"></p>
+				</div>
+
+				<div>
+					<label for="nbPassengers">Number of passengers : </label>
+					<p name="nbPassengers" id="nbPassengers"></p>
+				</div>
 	
-			<script id="noResultTemplate" type="text/template">
-				<p>You have no flight for the moment</p>
-			</script>
+				<div>
+					<label for="totalPrice">Total price : </label>
+					<p name="totalPrice" id="totalPrice"></p>
+				</div>
+
+				<div>
+					<label for="reservationStatus">Status : </label>
+					<p name="reservationStatus" id="reservationStatus"></p>
+				</div>
+			</div>
+
+			<div id="result"></div>
+		</div>
 
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-		<script type="text/javascript" src="PassengerProfile.js"></script>
+		<script type="text/javascript" src="Reservation.js"></script>
 	</body>
 </html>
+
+
+

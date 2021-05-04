@@ -7,8 +7,6 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-
 @PersistenceCapable
 public class Pilot {
 	
@@ -100,11 +98,26 @@ public class Pilot {
 
 	@Override
 	public String toString() {
-		return "Pilot [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
+		String s;
+		if(this.id==0) {
+			s=null;
+		}
+		else s="Pilot [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", password=" + password
 				+ ", experience=" + experience + ", qualification=" + qualification + ", mail=" + mail
 				+ ", number_of_flight_hours=" + number_of_flight_hours + ", list_of_flights=" + list_of_flights + "]";
+		return s;
 	}
 	
+	void copy(Pilot p) {
+		this.experience=p.getExperience();
+		this.firstName=p.getFirstName();
+		this.lastName=p.getLastName();
+		this.mail=p.getMail();
+		this.number_of_flight_hours=p.getNumber_of_flight_hours();
+		this.qualification=p.getQualification();
+		this.password=p.getPassword();
+		
+	}
 
 }
 

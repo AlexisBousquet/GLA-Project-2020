@@ -1,7 +1,5 @@
 package webservice;
 
-import java.time.LocalDateTime;
-
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -78,5 +76,3 @@ public class FlightRessourcesBouchon {
 	}
 
 }
-//@Path("/add/{a_dep}/{a_arr}/{date_dep}/{duration}/{price}/{remainingseats}/{id_pilot}")
-/*@PathParam("a_dep")String a_dep,@PathParam("a_arr")String a_arr,@PathParam("date_dep")LocalDateTime date_dep,@PathParam("duration")int duration,@PathParam("price")int price,@PathParam("remainingseats")int remainingseats,@PathParam("id_pilot")long idpilot*/

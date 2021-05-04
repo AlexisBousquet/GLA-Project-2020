@@ -7,43 +7,74 @@
 	</head>
 	
 	<body>
-		<div id="container">
-			<h1>Add a flight</h1>
+		<script id="PilotAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PilotProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="PassengerAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PassengerProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="ConnectTemplate" type="text/template">
+			<div id = connectTemplate>
+				<a href="http://localhost:8080/LoginPassenger.html" class="accountTemplate" id="connectPassenger">
+					<p>Passenger-Log in</p>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+				</a>
+				<a href="http://localhost:8080/LoginPilot.html" class="accountTemplate" id="connectPilot">
+					<p>Pilot-Log in</p>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+				</a>				
+			</div>
+		</script>
 		
-			<nav>
-
-			</nav>
-
+		<div id="container">
+			<header id="header">
+				<a id="homePageLink" href="http://localhost:8080/Homepage.html">Back to Homepage</a>
+				<div id="accountSpace"></div>
+			</header>
 			<script id="templateExample" type="text/template">
 				<div>
 					<%= attribute %>
 				</div>
 			</script>
 
+
+			<h1>Add a flight</h1>
+		
+			<nav>
+
+			</nav>
+
 			<div id="fields">
 				<div>
-					<label for="departureAerodrom">Aerodrom of departure : </label>
-					<input type="text" name="departureAerodrom"  id="departureAerodrom">
+					<label for="departureAirport">Airport of departure : </label>
+					<input type="text" name="departureAirport"  id="departureAirport">
 				</div>
 
 				<div>
-					<label for="arrivalAerodrom">Aerodrom of arrival : </label>
-					<input type="text" name="arrivalAerodrom" id="arrivalAerodrom">
+					<label for="arrivalAirport">Airport of arrival : </label>
+					<input type="text" name="arrivalAirport" id="arrivalAirport">
 				</div>
 
 				<div>
 					<label for="departureDate">Date of departure : </label>
-					<input type="date" name="departureDate" id="departureDate">
+					<input type="datetime-local" name="departureDate" id="departureDate">
 				</div>
 
 				<div>
-					<label for="departureTime">Time of departure : </label>
-					<input type="time" name="departureTime" id="departureTime">
-				</div>
-
-				<div>
-					<label for="duration">Duration of the flight : </label>
-					<input type="time" name="duration" id="duration">
+					<label for="duration">Duration of the flight (minutes) : </label>
+					<input type="number" name="duration" id="duration">
 				</div>
 
 				<div>
@@ -65,8 +96,12 @@
 			<div id="addFlight">
 				<button id="addFlightButton">Add this flight</button>
 			</div>
+
+			<div id="result"></div>
 		</div>
 
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 		<script type="text/javascript" src="AddFlight.js"></script>
 	</body>
 </html>

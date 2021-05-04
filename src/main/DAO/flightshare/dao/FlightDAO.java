@@ -1,6 +1,5 @@
 package DAO.flightshare.dao;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.joda.time.DateTime;
@@ -8,12 +7,15 @@ import org.joda.time.DateTime;
 public interface FlightDAO {
 	
 	
-	void add_flight(Flight flight);
+	Reponse add_flight(Flight flight,long id_pilot);
 	
 	
-	void modify_flight_remainingseats(long id,int seats,String passengers);
+	void book_flight(long id,long id_passengers,int seats);
 	
 	
-	List<Flight> search_flight(String a_dep,DateTime date_dep,DateTime date_dep2);
+	List<Flight> search_flight(String a_dep,DateTime date_dep,DateTime date_dep2,int seats);
+	
+	
+	Flight getFlightInfo(long id);
 
 }

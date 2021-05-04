@@ -8,7 +8,42 @@
 	</head>
 	
 	<body>
+		<script id="PilotAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PilotProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="PassengerAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PassengerProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="ConnectTemplate" type="text/template">
+			<div id = connectTemplate>
+				<a href="http://localhost:8080/LoginPassenger.html" class="accountTemplate" id="connectPassenger">
+					<p>Passenger-Log in</p>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+				</a>
+				<a href="http://localhost:8080/LoginPilot.html" class="accountTemplate" id="connectPilot">
+					<p>Pilot-Log in</p>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+				</a>				
+			</div>
+		</script>
+		
 		<div id="container">
+			<header id="header">
+				<a id="homePageLink" href="http://localhost:8080/Homepage.html">Back to Homepage</a>
+				<div id="accountSpace"></div>
+			</header>
 			<script id="templateExample" type="text/template">
 				<div>
 					<%= attribute %>

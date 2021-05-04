@@ -7,8 +7,8 @@
     <persistence-unit name="FlightShare">
     	<class>DAO.flightshare.dao.Flight</class>
     	<class>DAO.flightshare.dao.Passenger</class>
-        <class>DAO.flightshare.daov.Pilot</class>
-        <exclude-unlisted-classes/>
+        <class>DAO.flightshare.dao.Pilot</class>
+        <class>DAO.flightshare.dao.Reservation</class><exclude-unlisted-classes/>
         
         <properties>
             <property name="javax.jdo.option.ConnectionURL" value="jdbc:hsqldb:mem:example"/>
@@ -24,6 +24,6 @@
         </properties>
 
 
-    </persistence-unit>
+        </persistence-unit>
 
 </persistence>

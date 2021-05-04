@@ -1,12 +1,8 @@
 package server;
 
-import java.util.List;
-
-import javax.jdo.JDOHelper;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
-import javax.jdo.Query;
-import javax.jdo.Transaction;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -20,10 +16,8 @@ import org.glassfish.jersey.filter.LoggingFilter;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.servlet.ServletContainer;
-import org.joda.time.DateTime;
 
-import DAO.flightshare.dao.Flight;
-import DAO.flightshare.dao.Pilot;
+import MailSystem.MailSender;
 
 public class JettyMain {
 
@@ -63,30 +57,13 @@ public class JettyMain {
 		ContextHandlerCollection contexts = new ContextHandlerCollection();
 		contexts.setHandlers(new Handler[] { handlerWebServices, handlerPortalCtx });
 		server.setHandler(contexts);
-
+		
+		//New threads in charge of the reminder of incoming flights
+		 ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+		 scheduler.scheduleAtFixedRate(new MailSender.ThreadMail(10),0, 10, TimeUnit.SECONDS);
+		
 		// Start server
 		server.start();
-		
-		
-		PersistenceManagerFactory pmf=JDOHelper.getPersistenceManagerFactory("FlightShare");
-		PersistenceManager pm=pmf.getPersistenceManager();
-		Transaction tx = pm.currentTransaction();
-		Flight f1=new Flight("CDG","NRT",DateTime.now(),1,2,3,"michel",null);
-		Flight f2=new Flight("CDG","MICH",DateTime.now().plusDays(4),1,2,3,"michel",null);
-		Flight f3=new Flight("CDG","EL",DateTime.now().plusMinutes(10),1,2,3,"michel",null);
-		try {
-			tx.begin();
-			pm.makePersistent(f1);
-			pm.makePersistent(f2);
-			pm.makePersistent(f3);
-			tx.commit();
-		} finally {
-			if (tx.isActive()) {
-				tx.rollback();
-			}
-			pm.close();
-		}
-		
 		
 		
 
