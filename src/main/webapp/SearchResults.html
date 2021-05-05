@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<title>Search results</title>
+	</head>
+
+	<body>
+		<script id="PilotAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PilotProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="PassengerAccountTemplate" type="text/template">
+			<a href="http://localhost:8080/PassengerProfile.html" class="accountTemplate">
+				<div>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+					<p id="userName"><%= name %></p>
+				</div>
+			</a>
+		</script>
+
+		<script id="ConnectTemplate" type="text/template">
+			<div id = connectTemplate>
+				<a href="http://localhost:8080/LoginPassenger.html" class="accountTemplate" id="connectPassenger">
+					<p>Passenger-Log in</p>
+					<img src="img/PassengerIcon.png" alt="PassengerIcon_img" class="accountLogo"/>
+				</a>
+				<a href="http://localhost:8080/LoginPilot.html" class="accountTemplate" id="connectPilot">
+					<p>Pilot-Log in</p>
+					<img src="img/PilotIcon.png" alt="PilotIcon_img" class="accountLogo"/>
+				</a>				
+			</div>
+		</script>
+		
+		<div id="container">
+			<header id="header">
+				<a id="homePageLink" href="http://localhost:8080/Homepage.html">Back to Homepage</a>
+				<div id="accountSpace"></div>
+			</header>
+			<h1>Search results</h1>
+			<div id="flightList"></div>
+			<div id="otherSearch">
+				<button id="otherSearchButton" class="btn btn-primary">Search another flight</button>
+			</div>	
+		</div>
+
+		<script id="flightTemplate" type="text/template">
+			<div class="flight">
+				<div class="airports">
+					<p>
+						From: <br>
+						<%= departureAirport %>
+					</p>
+
+					<p>
+						To: <br>
+						<%= arrivalAirport %>
+					</p>
+
+				</div>
+				<p>
+					Departure Time (UTC): <br>
+					<%= departureTime %>
+				</p>
+
+				<p>
+					Duration(min): <br>
+					<%= duration %>
+				</p>
+
+				<p>
+					Price ($): <br>
+					<%= price %>
+				</p>
+
+				<p>
+					Remaining seats: <br>
+					<%= remainingSeats %>
+				</p>
+			</div>
+		</script>
+
+		<script id="noResultTemplate" type="text/template">
+			<p>Sorry, we haven't found any flight, try another search</p>
+		</script>
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+		<script type="text/javascript" src="SearchResults.js"></script>
+	</body>
+</html>
